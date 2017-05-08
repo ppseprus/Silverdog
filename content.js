@@ -66,7 +66,7 @@
     let biquadFilter = context.createBiquadFilter();
 
     chrome.storage.local.get(['type', 'freq', 'q', 'gain'], function (items) {
-      biquadFilter.type = items.type || 'highshelf';
+      biquadFilter.type = items.type || 'lowpass';
       biquadFilter.frequency.value = items.freq || '17999';
       biquadFilter.Q.value = items.q || '0';
       biquadFilter.gain.value = items.gain || '-70';
