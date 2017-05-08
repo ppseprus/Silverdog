@@ -7,7 +7,8 @@
     error: 'Audio element could not be filtered.'
   };
 
-  let connect = AudioNode.prototype.connect,
+  let windowContext = new (window.AudioContext || window.webkitAudioContext),
+    connect = AudioNode.prototype.connect,
     audioElements = document.getElementsByTagName('audio'),
     videoElements = document.getElementsByTagName('video'),
     filteredSources = [],
@@ -39,8 +40,6 @@
    */
   function createAndConnectSource(element, i) {
     if (!filteredSources.includes(this[i])) {
-      let windowContext = new (window.AudioContext || window.webkitAudioContext);
-
       log(detectionStatus['audioFound']);
       console.log(this[i]);
 
